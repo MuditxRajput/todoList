@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+body{
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main_div{
+  height: 40vh;
+  /* padding: 10px; */
+  width: 400px;
+  background-color: white;
+  margin-top: 100px;
+  border-radius: 20px;
+  padding: 5px;
+  /* margin-top: 2px; */
+  box-shadow: 5px 5px 25px -5px;
+  
+  /* width: 100%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center; */
+}
+/* .heading h1 {
+  text-align: center;
+}
+.heading{
+  height: 40px;
+  background-color: rgb(180, 173, 173);
+ 
+  margin-top: 100px;
+
+} */
+
+.centre_div {
+  height: 40px;
+  width: 400px;
+  background-color: grey;
+  border-radius: 10px;
+  margin-top: -12px;
+}
+
+.centre_div h1 {
+  color: rgb(255, 255, 255); /* Set the text color of <h1> to white */
+  text-align: center;
+}
+
+.input_text input{
+  text-align: center;
+  height: 30px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 500;
+  width: 60%;
+  border-bottom: 2px solid black;
+  outline: none;
+ 
+
+}
+.input_text{
+  display: flex;
+  justify-content: center;
+}
+
+.input_text button{
+  min-height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: orangered;
+  color: #fff;
+  font-size: 20px;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  box-shadow: 5px 5px 15px -15px ;
+  cursor: pointer;
+}
+.list{
+  margin-left: 30px;
+  font-size: 16px;
+  /* font-weight: bold; */
+}
+.items_val{
+  display: flex;
+  flex-direction:row;
+  gap: 5px;
+  /* background-color: red; */
+}
+.items_val i{
+  color: black;
+  margin-top: 5px;
+  cursor: pointer;
+}
+i:hover{
+  color: red;
+}
