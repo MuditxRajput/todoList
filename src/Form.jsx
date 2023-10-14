@@ -1,14 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Input from './Input';
 import List from './List';
+const getItem = ()=>{
+    let list = localStorage.getItem('key');
+    if(list)
+    {
+        return JSON.parse(localStorage.getItem('key'));
+    }
+    else{
+        return [];
+    }
+ }
 const Form = ()=>{
+     
+
     const[name,setName] = useState('');
-    const[list,setList] = useState([]);
+    const[list,setList] = useState(getItem());
     const change = (e)=>{
             setName(e.target.value);
     }
     const add=()=>{
-        // console.log(name);
+        
         if(name==='')
         {
 
@@ -30,10 +42,9 @@ const Form = ()=>{
     
 
     
-    // useEffect(() => {
-    //     // This effect will run after every render
-    //     console.log('List Updated:', list);
-    // }, [list]);
+    useEffect(()=>{
+        localStorage.setItem('key',JSON.stringify(list));
+    },[list])
     return(
         <>
         <div className='flex flex-col '>
