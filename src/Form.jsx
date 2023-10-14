@@ -16,6 +16,8 @@ const Form = ()=>{
 
     const[name,setName] = useState('');
     const[list,setList] = useState(getItem());
+    const[editablebool,setEditablebool] = useState(true)
+    const[id,setId] = useState(null)
     const change = (e)=>{
             setName(e.target.value);
     }
@@ -23,23 +25,47 @@ const Form = ()=>{
         
         if(name==='')
         {
+            alert("Plzz enter your data");
+        }
+        else if(name && editablebool===false)
+        {
+            setList(
+                list.map((elem)=>{
+                    if(elem.id===id)
+                    {
+                        return{...elem,name:name}
+                    }
+                    return elem;
+                })
+            )
+            setName(' ');
+            setId(null);
 
         }
         else{
-            setList((val)=>[...val,name]);
+            let newList  =  {id:new Date().getTime().toString() , name:name}
+            setList((val)=>[...val,newList]);
            
             setName('')
 
         }
-        
-        
-
     }
     const deleteList = (id) => {
-       const updateItem = list.filter((elem,ind)=>{return ind!==id})
+        // console.log(id);
+       const updateItem = list.filter((elem)=>{return elem.id!==id})
        setList(updateItem)
     };
-    
+    const edit = (id)=>{
+        let editable = list.find((elem)=>{
+            return id===elem.id
+        });
+        setEditablebool(false);
+        // setEditable(editable.name)
+        setName(editable.name);
+        setId(id);
+        
+        
+    }
 
     
     useEffect(()=>{
@@ -60,12 +86,16 @@ const Form = ()=>{
                     change = {change}
                     add=  {add}
                     name = {name}
+                    // editablebool ={editablebool}
+                    // editable ={editable}
+
                     />
                 </div>
                 <div>
                     <List
                     list = {list}
                     deleteList = {deleteList}
+                    edit = {edit}
                     />
                 </div>
             </div>
